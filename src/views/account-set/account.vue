@@ -22,7 +22,7 @@
             <el-card class="box-card2">
             <div slot="header" class="clearfix" style="display:flex">
                 <div id="accountinfo">
-                    <h2 style="margin-left: 80px; text-align: left;">账户信息</h2>
+                    <h2 style="margin-left: 80px; text-align: left;"></h2>
                     <div class="ainfo2" style="margin-top:50px"><span>用户名：{{name}}</span></div>
 <!--                    <div class="ainfo2"><span>用户id：{{userid}}</span></div>-->
                 </div>
@@ -137,12 +137,13 @@
           case 2:
             this.$message.error("登录信息错误，请重新登录");
             this.$store.dispatch('clear');
-            location.reload();
+            //如果登录错误，跳转到登录页面
+            this.$router.push('/login');
             break;
           case 3:
             this.$message.error("未检测到登录信息，请重新登录");
             this.$store.dispatch('clear');
-            location.reload();
+            this.$router.push('/login');
             break;
         }
       })
